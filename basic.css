@@ -1,0 +1,36 @@
+h1 {
+    font-family: 'Times New Roman', Times, serif;
+    color: black;
+    align-self: center;
+}
+
+th,
+td {
+    border: 1px solid black;
+    padding: 5px;
+}
+
+nav {
+    background-color: grey;
+    padding: 9px;
+}
+
+a {
+    padding: 8px;
+    color: black;
+    background-color: #EEEEEE;
+    text-decoration: none;
+    
+  }
+a:hover {
+    background-color: #6be9d8;
+}
+
+.active {
+    color: white;
+    background-color: #029b9b;
+}
+
+.active:hover{
+    color: black;
+}

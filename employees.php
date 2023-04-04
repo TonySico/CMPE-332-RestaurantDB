@@ -19,23 +19,23 @@
     </center>
 	
 	<br>
-    <h2>Orders placed by Date:</h2>
-    <table>
-    <tr><th>Date</th><th>Number of orders</th></tr>
-        <?php
-            include 'connectDB.php';
-            
-            $result = $connection->query("select Distinct DateOrdered from orders order by DateOrdered;"); 
-            while ($row = $result->fetch()) {
-                $dates = $connection->query("select count(DateOrdered) from orders where DateOrdered = '".$row["DateOrdered"]."';");
-                $date = $dates->fetch();    
-                echo "<tr><td>".$row["DateOrdered"]."</td><td>".$date[0]."</td></tr>";
-            }
-            
-            $connection = NULL;
-        ?>
-
-    </table>
+    
+    <h2>List of employees</h2>
+    <p>Select an employee to see the days they work.</p>
+    <form action="processEmployee.php" method="post">
+    <?php
+        include 'connectDB.php';
+        
+        $result = $connection->query("select Name from Employee;"); 
+        while ($row = $result->fetch()) {
+            echo " <label for=\"Name\">".$row["Name"]."</label><input type=\"radio\" id=\"name\" name=\"Name\" value=\"".$row["Name"]."\"><br>";
+        }
+        
+        $connection = NULL;
+    ?>
+    <br>
+    <input type="submit">
+    </form>
     </body>
 
 </html>

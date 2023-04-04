@@ -11,8 +11,8 @@
 	<center>
         <h1>Restaurant</h1>
         <nav>
-            <a class="active" href="restaurant.php">Order History</a> |
-            <a href="addCustomer.php">Add New Customer</a> |
+            <a href="restaurant.php">Order History</a> |
+            <a class="active" href="addCustomer.php">Add New Customer</a> |
             <a href="">All Orders</a> |
             <a href="">Employees</a>
         </nav>

@@ -37,13 +37,15 @@
         echo "<br>";
 
         //run a query
-        $result = $connection->query("select customers.FName, customers.LName, itemsordered.FoodItem, Orders.total, Orders.tip, employee.Name from employee");
+        $result = $connection->query("select customers.FName, customers.LName, itemsordered.FoodItem, Orders.total, Orders.tip, employee.Name from (((orders join employee on orders.DeliveryID = employee.ID) join itemsordered on orders.OrderID = itemsordered.OrderID) join customers on orders.EmailAddress = customers.EmailAddress) where orders.DateOrdered = '".$date."'");
 
         //process results
-        while ($row = $result->fetch()) {
-            echo "<li>".$row["EmailAddress"].", ".$row["Name"].", ".$row["ID"]."</li>";
-        }
+        echo "<table><tr><th>Customer First Name</th><th>Customer Last Name</th><th>Food Item Ordered</th><th>Total($)</th><th>Tip($)</th><th>Employee Name</th></tr>";
 
+        while ($row = $result->fetch()) {
+            echo "<tr><td>".$row["FName"]."</td><td>".$row["LName"]."</td><td>".$row["FoodItem"]."</td><td>".$row["total"]."</td><td>".$row["tip"]."</td><td>".$row["Name"]. "</tr>";
+        }
+        echo "</table>";
         $connection = NULL;
     ?>
 

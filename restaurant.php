@@ -7,7 +7,8 @@
 <html>
 
     <body>
-        <center>
+       
+	<center>
             <h1>Restaurant</h1>
             <nav>
                 <a class="active" href="restaurant.php">Home</a> |
@@ -16,15 +17,14 @@
                 <a href="">Python</a>
             </nav>
         </center>
-
-        <form action=restaurant.php" method="post">
-            <p>First name:</p>
-            <input type="text" name="firstname">
-            <br>
-            <p>Last name: </p>
-            <input type="text" name="lastname">
-            <input type="submit">
-        </form>
+	
+	<br>
+	
+	<form action=restaurant.php" method="post">
+		<label for="date">Select a Date:</label>
+		<input type="date" id="date" name="Work Date">
+		<input type="submit">
+	</form>
 
         <table>
             <tr><th>First Name</th><th>Surname</th></tr>

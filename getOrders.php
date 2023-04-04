@@ -37,7 +37,7 @@
         echo "<br>";
 
         //run a query
-        $result = $connection->query("select  from employee");
+        $result = $connection->query("select customers.FName, customers.LName, itemsordered.FoodItem, Orders.total, Orders.tip, employee.Name from employee");
 
         //process results
         while ($row = $result->fetch()) {

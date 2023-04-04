@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 
 <head>
@@ -32,7 +33,7 @@
 	    <input type="text" id="lname" name="lname" placeholder="Doe">
 	    <br>
         <label for="email">Enter your phone number</label>
-        <input type="tel" id="phone" name="phoneNumber" pattern="[0-9][3]-[0-9][3]-[0-9][4]" placeholder="613-613-6136">
+        <input type="tel" id="phone" name="phoneNumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="613-613-6136">
 		<br>
         <label for="email">Enter your postal code</label>
         <input type="text" id="postalCode" name="postalCode" pattern="[a-zA-Z][0-9][a-zA-Z]-[0-9][a-zA-Z][0-9]" placeholder="X1X-1X1">
@@ -44,6 +45,32 @@
         <input type="text" id="city" name="city" placeholder="Kingsont">
 		<input type="submit">
 	</form>
+
+    <?php
+        include 'connectDB.php';
+        
+        $email = $_POST["email"];
+        $fname = $_POST["fname"];
+        $lname = $_POST["lname"];
+        $phone = $_POST["phoneNumber"];
+        $postalCode = $_POST["postalCode"];
+        $street = $_POST["street"];
+        $city = $_POST["city"];
+        
+        $result = $connection->query("select count(EmailAddress) from customers where EmailAddress ='".$email."'");
+        $data = $result->fetch(); 
+        if ($data[0]) {
+            echo "<p>This customer already exists</p>";
+        } else {
+            $adding = $connection->exec("insert into Customers values ('".$email."', '".$fname."', '".$lname."', '".$phone."', '".$postalCode."', '".$street."', '".$city."');");
+            $acc = $connection->exec("insert into Account values ('00000', '".$email."', '5.00');");
+            $result = $connection->query("select credit from Account where EmailAddress = '".$email."'");
+            $balance = $result->fetch();
+            echo "<p>Success! A new account was created for ".$fname." with the email ".$email." containing $".$balance["credit"]."</p>";
+        }
+        
+        $connection = NULL;
+    ?>
 
     </body>
 

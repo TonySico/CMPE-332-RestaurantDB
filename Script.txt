@@ -63,6 +63,7 @@ CREATE TABLE Account( /* this seems irelevant as it takes the primary key of Cus
 Payment Table, however this is necessary if the ER diagram I submitted is followed. */
 PaymentID       INTEGER     NOT NULL,
 EmailAddress    CHAR(35)    NOT NULL,
+Credit          DECIMAL(10,2),
 PRIMARY KEY(PaymentID, EmailAddress),
 FOREIGN KEY(EmailAddress) REFERENCES Customers(EmailAddress) on delete cascade);
 
@@ -182,10 +183,10 @@ insert into RelatedTo values
 ;
 
 insert into Account values
-('16253', 'M.L@gmail.com'),
-('12346', 'M.L@gmail.com'),
-('12348', 'M_L@gmail.com'),
-('14653', 'M_L@gmail.com')
+('16253', 'M.L@gmail.com', '0.00'),
+('12346', 'M.L@gmail.com', '0.00'),
+('12348', 'M_L@gmail.com', '5.00'),
+('14653', 'M_L@gmail.com', '10.00')
 ;
 
 insert into Payment values

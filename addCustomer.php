@@ -21,7 +21,7 @@
 	<br>
 	
 	<form action="getOrders.php" method="post">
-        <label for="date">Select a Date to see order details:</label>
+        <label for="date">Complete the below form to registe a new account.</label>
 		<input type="date" id="date" name="orderDate">
 		<input type="submit">
 	</form>

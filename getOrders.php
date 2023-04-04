@@ -13,8 +13,8 @@
         <nav>
             <a class="active" href="restaurant.php">Order History</a> |
             <a href="addCustomer.php">Add New Customer</a> |
-            <a href="">All Orders</a> |
-            <a href="">Employees</a>
+            <a href="checkOrders.php">All Orders</a> |
+            <a href="employees.php">Employees</a>
         </nav>
     </center>
 	

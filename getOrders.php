@@ -20,19 +20,7 @@
 	
 	<br>
     <?php
-        include 'connectDB.php';
-        echo "<br>";
-
-        //run a query
-        $result = $connection->query("select * from employee");
-
-        //process results
-        while ($row = $result->fetch() {
-            var_dump($row)
-            echo "<br>";
-        }
-
-        $connection = NULL;
+        
     ?>
 	
 	<form action="getOrders.php" method="post">
@@ -43,7 +31,20 @@
 
     <?php
         $date = $_POST["orderDate"];
-        echo "<table><tr><td>".$date."</td></tr></table>";
+        echo "<h2>".$date."</h2>";
+
+        include 'connectDB.php';
+        echo "<br>";
+
+        //run a query
+        $result = $connection->query("select  from employee");
+
+        //process results
+        while ($row = $result->fetch()) {
+            echo "<li>".$row["EmailAddress"].", ".$row["Name"].", ".$row["ID"]."</li>";
+        }
+
+        $connection = NULL;
     ?>
 
     </body>

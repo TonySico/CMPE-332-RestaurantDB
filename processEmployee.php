@@ -28,23 +28,29 @@
 
         echo "<h2>".$name."'s schedule:</h2>";
 
-        $result = $connection->query("select Days from Employee join schedule on employee.ID = schedule.EmpID where employee.Name = '".$name."';");
+        $result = $connection->query("select Schedule.Days, Schedule.ShortDate, Schedule.StartTime, Schedule.EndTime from Employee join Schedule on Employee.ID = schedule.EmpID where employee.Name = '".$name."';");
         $check = $result->fetch();   
 
         if (!$check){
             echo "<p>This employee is not scheduled to work.</p>";
         } else {
-            $result = $connection->query("select Days from Employee join schedule on employee.ID = schedule.EmpID where employee.Name = '".$name."';");
+            $result = $connection->query("select Schedule.Days, Schedule.ShortDate, Schedule.StartTime, Schedule.EndTime from Employee join Schedule on Employee.ID = schedule.EmpID where employee.Name = '".$name."' order by Days;");
         }
+        
+        echo "<table><tr><th>Date</th><th>Start Time</th><th>End Time</th></tr>";
 
         while ($row = $result->fetch()){
-            echo $row["Days"]."<br>";
+            if ($row["ShortDate"] == "Sat" || $row["ShortDate"] == "Sun") {
+            } else {
+                echo "<tr><td>".$row["ShortDate"]." (".$row["Days"].")</td><td>".$row["StartTime"]."</td><td>".$row["EndTime"]."</td></tr>";
+            }
         } 
         
-        $connection = NULL;
+       echo "</table><br><input type=\"submit\" value=\"Reset\">";
+       
+       $connection = NULL;
     ?>
     <br>
-    <input type="submit" value="Reset">
     </form>
     </body>
 

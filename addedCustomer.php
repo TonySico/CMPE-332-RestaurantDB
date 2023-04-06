@@ -14,7 +14,7 @@
         <nav>
             <a href="restaurant.php">Order History</a> |
             <a class="active" href="addCustomer.php">Add New Customer</a> |
-            <a href="checOrders.php">All Orders</a> |
+            <a href="checkOrders.php">All Orders</a> |
             <a href="employees.php">Employees</a>
         </nav>
     </center>

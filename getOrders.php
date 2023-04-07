@@ -52,13 +52,13 @@
                     echo "<tr><td>".$row["FName"]."</td><td>".$row["LName"]."</td><td>".$row["FoodItem"]." ($".$row["Price"].")</td><td>".$row["total"]."</td><td>".$row["tip"]."</td><td>".$row["Name"]."</td></tr>";
                 } else {  
                     if ($check == $numItems[0]-1) {
-                        echo $row["FoodItem"]." $(".$row["Price"].")<br></td><td>".$prevTotal."</td><td>".$prevTip."</td><td>".$prevDeliveryName."</td></tr>";
+                        echo $row["FoodItem"]." ($".$row["Price"].")<br></td><td>".$prevTotal."</td><td>".$prevTip."</td><td>".$prevDeliveryName."</td></tr>";
                         $check = 0;
                     } else if ($prevOrderID > $row["OrderID"] || $prevOrderID < $row["OrderID"]) {
                         echo "<tr><td>".$row["FName"]."</td><td>".$row["LName"]."</td><td>".$row["FoodItem"]." ($".$row["Price"].")<br>";
                         $check++;
                     } else {
-                        echo $row["FoodItem"]." $(".$row["Price"].")<br>";
+                        echo $row["FoodItem"]." ($".$row["Price"].")<br>";
                         $check++;
                     }
                 } 

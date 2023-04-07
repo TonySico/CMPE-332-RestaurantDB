@@ -9,7 +9,8 @@
     <body>
        
 	<center>
-        <h1>Restaurant<img src="clipart.png"> </h1>
+         
+        <h1>Antho Knee's Restaurant<img src="clipart.png"></h1>
         <nav>
             <a href="restaurant.php">Order History</a> |
             <a href="addCustomer.php">Add New Customer</a> |

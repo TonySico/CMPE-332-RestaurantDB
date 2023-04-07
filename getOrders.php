@@ -54,23 +54,21 @@
         
             $num = $connection->query("select count(itemsordered.FoodItem) from (orders join itemsordered on orders.OrderID = itemsordered.OrderID) where orders.OrderId = '".$row["OrderID"]."';");
             $numItems = $num->fetch();
-            echo " Check:".$check." numitems: ".($numItems[0])." Order: ".$row["OrderID"];
             
-                echo "<tr><td>".$row["FName"]."</td><td>".$row["LName"]."</td><td>".$row["FoodItem"]." $(".$row["Price"].")</td><td>".$row["total"]."</td><td>".$row["tip"]."</td><td>".$row["Name"]."</td></tr>";
-            if ($numItems > 1){  
-                if ($check == $numItems[0]) {
-                    echo "</td><td>".$prevTotal."</td><td>".$prevTip."</td><td>".$prevDeliveryName."</td></tr>";
-                    $check = 0;
-                } else if ($prevOrderID >= $row["OrderID"] || $prevOrderID <= $row["OrderID"]) {
-                        echo "<tr><td>".$row["FName"]."</td><td>".$row["LName"]."</td><td>".$row["FoodItem"]." ($".$row["Price"].")";
-                        $check++;
-                } else {
-                        echo $row["FoodItem"]." $(".$row["Price"].")<br>";
-                }
-            } else {
+            if ($numItems[0] == 1){
                 echo "<tr><td>".$row["FName"]."</td><td>".$row["LName"]."</td><td>".$row["FoodItem"]." ($".$row["Price"].")</td><td>".$row["total"]."</td><td>".$row["tip"]."</td><td>".$row["Name"]."</td></tr>";
-            }
-
+            } else {  
+                if ($check == $numItems[0]-1) {
+                    echo $row["FoodItem"]." $(".$row["Price"].")<br></td><td>".$prevTotal."</td><td>".$prevTip."</td><td>".$prevDeliveryName."</td></tr>";
+                    $check = 0;
+                } else if ($prevOrderID > $row["OrderID"] || $prevOrderID < $row["OrderID"]) {
+                    echo "<tr><td>".$row["FName"]."</td><td>".$row["LName"]."</td><td>".$row["FoodItem"]." ($".$row["Price"].")<br>";
+                    $check++;
+                } else {
+                    echo $row["FoodItem"]." $(".$row["Price"].")<br>";
+                    $check++;
+                }
+            } 
            
             $prevTotal = $row["total"];
             $prevTip = $row["tip"];

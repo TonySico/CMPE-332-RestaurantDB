@@ -40,7 +40,7 @@
             $result = $connection->query("select customers.FName, customers.LName, itemsordered.FoodItem, Food.Price, Orders.total, Orders.tip, Orders.OrderID, employee.Name from ((((orders join employee on orders.DeliveryID = employee.ID) join itemsordered on orders.OrderID = itemsordered.OrderID) join customers on orders.EmailAddress = customers.EmailAddress) join Food on ItemsOrdered.IURL = Food.URL and ItemsOrdered.FoodItem = Food.FoodItemN)  where orders.DateOrdered = '".$date."'");
 
             //process results
-            echo "<table><tr><th>Customer First Name</th><th>Customer Last Name</th><th>Food Item Ordered</th><th>Total($)</th><th>Tip($)</th><th>Employee Name</th></tr>";
+            echo "<table class =\"center2\"><tr><th>Customer First Name</th><th>Customer Last Name</th><th>Food Item Ordered</th><th>Total($)</th><th>Tip($)</th><th>Employee Name</th></tr>";
             $prevOrderID = 0;
             $check = 0; 
             while ($row = $result->fetch()) {

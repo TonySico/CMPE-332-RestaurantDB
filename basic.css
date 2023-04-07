@@ -4,7 +4,8 @@ h1 {
     align-self: center;
 }
 
-body, input {
+body,
+input {
     background-color: #91a4a8;
 }
 
@@ -34,6 +35,7 @@ input[type=submit]:focus {
     border: none;
     padding: 9px 18px;
 }
+
 th,
 td {
     border: 1px solid black;
@@ -55,8 +57,9 @@ a {
     color: black;
     background-color: #EEEEEE;
     text-decoration: none;
-    
-  }
+
+}
+
 a:hover {
     background-color: #6be9d8;
 }
@@ -66,7 +69,7 @@ a:hover {
     background-color: #029b9b;
 }
 
-.active:hover{
+.active:hover {
     color: black;
 }
 
@@ -113,4 +116,5 @@ img {
     margin-left: 15px;
     height: 50px;
     border-radius: 100%;
+    border: 2px solid black;
 }

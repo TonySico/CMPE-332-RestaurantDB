@@ -4,13 +4,48 @@ h1 {
     align-self: center;
 }
 
+body, input {
+    background-color: #91a4a8;
+}
+
+input {
+    align-self: center;
+    margin: 2px;
+    border: none;
+    border-bottom: 2px solid #029b9b;
+    padding: 3px;
+}
+
+input:focus {
+    background-color: lightblue;
+    border: none;
+    padding: 3px;
+    margin: 3px;
+}
+
+input[type=submit] {
+    background-color: lightblue;
+    border: none;
+    padding: 10px 20px;
+}
+
+input[type=submit]:focus {
+    background-color: grey;
+    border: none;
+    padding: 9px 18px;
+}
 th,
 td {
     border: 1px solid black;
     padding: 5px;
 }
 
+table {
+    text-align: center;
+}
+
 nav {
+    margin-bottom: 10px;
     background-color: grey;
     padding: 9px;
 }
@@ -33,4 +68,42 @@ a:hover {
 
 .active:hover{
     color: black;
+}
+
+.center {
+    text-align: center;
+    margin: auto;
+    width: 80%;
+    border: 2px solid #6be9d8;
+    background-color: #5b686b9a;
+    border-radius: 15%;
+    padding: 20px;
+}
+
+.center2 {
+    text-align: center;
+    margin: auto;
+}
+
+.results {
+    text-align: center;
+    margin: auto;
+    margin-top: 5px;
+    width: 80%;
+    border: 2px solid #6be9d8;
+    background-color: #5b686b9a;
+    border-radius: 30%;
+    padding: 20px;
+    padding-bottom: 100px;
+}
+
+.results2 {
+    text-align: center;
+    margin: auto;
+    margin-top: 5px;
+    width: 80%;
+    border: 2px solid #6be9d8;
+    background-color: #5b686b9a;
+    border-radius: 30%;
+    padding: 20px;
 }

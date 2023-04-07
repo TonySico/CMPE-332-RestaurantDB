@@ -18,24 +18,25 @@
         </nav>
     </center>
 	
-	<br>
-    <h2>Orders placed by Date:</h2>
-    <table>
-    <tr><th>Date</th><th>Number of orders</th></tr>
-        <?php
-            include 'connectDB.php';
-            
-            $result = $connection->query("select Distinct DateOrdered from orders order by DateOrdered;"); 
-            while ($row = $result->fetch()) {
-                $dates = $connection->query("select count(DateOrdered) from orders where DateOrdered = '".$row["DateOrdered"]."';");
-                $date = $dates->fetch();    
-                echo "<tr><td>".$row["DateOrdered"]."</td><td>".$date[0]."</td></tr>";
-            }
-            
-            $connection = NULL;
-        ?>
+    <div class="center"> 
+        <h2>Orders placed by Date:</h2>
+        <table class="center2">
+        <tr><th>Date</th><th>Number of orders</th></tr>
+            <?php
+                include 'connectDB.php';
+                
+                $result = $connection->query("select Distinct DateOrdered from orders order by DateOrdered;"); 
+                while ($row = $result->fetch()) {
+                    $dates = $connection->query("select count(DateOrdered) from orders where DateOrdered = '".$row["DateOrdered"]."';");
+                    $date = $dates->fetch();    
+                    echo "<tr><td>".$row["DateOrdered"]."</td><td>".$date[0]."</td></tr>";
+                }
+                
+                $connection = NULL;
+            ?>
 
-    </table>
+        </table>
+    </div>    
     </body>
 
 </html>

@@ -17,15 +17,16 @@
             <a href="employees.php">Employees</a>
         </nav>
     </center>
+    
+	<div class="center">
 	
-	<br>
-	
-	<form action="getOrders.php" method="post">
-        <label for="date">Select a Date to see order details:</label>
-		<input type="date" id="date" name="orderDate">
-		<input type="submit">
-	</form>
-
+        <form action="getOrders.php" method="post">
+            <label for="date">Select a Date to see order details:</label>
+            <input type="date" id="date" name="orderDate">
+            <input type="submit">
+        </form>
+ 
+    </div>
     </body>
 
 </html>
